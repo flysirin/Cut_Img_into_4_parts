@@ -4,6 +4,7 @@ from PIL import Image
 allowed_files = ['.jpg', '.jpeg', '.png']
 source_path = 'source_images'
 output_path = 'output_images'
+CUT_AROUND_IMG = 2
 
 
 def crop_image(file: Path) -> Image:
@@ -11,16 +12,18 @@ def crop_image(file: Path) -> Image:
     with Image.open(file) as img:
 
         width, height = img.size
-        part_width = width // 2
-        part_height = height // 2
+        width = width - CUT_AROUND_IMG
+        height = height - CUT_AROUND_IMG
+        part_width = width // 2 - CUT_AROUND_IMG
+        part_height = height // 2 - CUT_AROUND_IMG
 
         coordinates = [
-            (0, 0, part_width, part_height),  # Top left
-            (part_width, 0, width, part_height),  # Top right
-            (0, part_height, part_width, height),  # Bottom left
+            (CUT_AROUND_IMG, CUT_AROUND_IMG, part_width, part_height),  # Top left
+            (part_width, CUT_AROUND_IMG, width, part_height),  # Top right
+            (CUT_AROUND_IMG, part_height, part_width, height),  # Bottom left
             (part_width, part_height, width, height)  # Bottom right
         ]
-
+        print(coordinates)
         parts = [img.crop(coord) for coord in coordinates]
         for i, part in enumerate(parts):
             part.save(f"{output_path}//{file.stem}//{file.name}_{i + 1}.{current_suffix}")
