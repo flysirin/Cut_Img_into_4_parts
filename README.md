@@ -11,7 +11,7 @@ This project requires Python 3.12. You can download and install Python 3.12 from
 ```
 pip install -r requirements.txt  
 ```
-In main.py change source_path, output_path if you need, create source_path dir.  
+In main.py change source_path, output_path if you need, create source_path dir - put the images there 
 Global environment CUT_AROUND_IMG - used for cutting output parts in a circle.   
 allowed_files - a list of file formats that you want to be processed.  
 Here you can find out what other pharmaceuticals Pillow can work with:  
@@ -22,4 +22,5 @@ https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
 python main.py  
 ```
 
+If there is no output folder, a folder will be created with directories named the same as the files
 
