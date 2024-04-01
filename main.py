@@ -7,14 +7,12 @@ output_path: str = 'output_images'
 CUT_AROUND_IMG: int = 2
 
 
-def crop_image(file: Path, cut_around: int = 0) -> Image:
+def crop_image(file: Path, cut_around: int = 0) -> None:
     cut = cut_around
     current_suffix = file.suffix
 
     with Image.open(file) as img:
         width, height = img.size
-        width = width
-        height = height
         part_width = width // 2
         part_height = height // 2
 
