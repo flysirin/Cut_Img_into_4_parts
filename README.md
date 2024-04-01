@@ -11,11 +11,11 @@ This project requires Python 3.12. You can download and install Python 3.12 from
 ```
 pip install -r requirements.txt  
 ```
-In main.py change source_path, output_path if you need, create source_path dir - put the images there 
-Global environment CUT_AROUND_IMG - used for cutting output parts in a circle.   
-allowed_files - a list of file formats that you want to be processed.  
-Here you can find out what other pharmaceuticals Pillow can work with:  
-https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+In main.py change source_path, output_path if you need, create source_path dir - put the images there   
+Global environment CUT_AROUND_IMG - used for cutting output parts in a circle around.     
+allowed_files - a list of file formats that you want to be processed.     
+Here you can find out what other extensions Pillow can work with:      
+https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html  
 
 ### Run project
 ```
